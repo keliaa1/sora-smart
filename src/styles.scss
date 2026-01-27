@@ -269,6 +269,12 @@ body {
   gap: 12px;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .date-display {
   background: white;
   padding: 8px 16px;
