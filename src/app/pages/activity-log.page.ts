@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-activity-log',
@@ -48,7 +49,7 @@ import { RouterModule, RouterLink } from '@angular/router';
   `]
 })
 export class ActivityLogPage {
-  alert(msg: string) { window.alert(msg); }
+  alert(msg: string) { toast(msg); }
   logs = [
     { time: '10:42 AM', user: 'Jean Bosco', action: 'completed survey for', target: 'Commercial House #284', district: 'Gasabo', type: 'Survey', icon: 'check_circle', bg: '#10b981' },
     { time: '09:15 AM', user: 'Admin', action: 'revoked access for', target: 'Robert Musoni', district: 'Kicukiro', type: 'Staff', icon: 'person_remove', bg: '#ef4444' },
