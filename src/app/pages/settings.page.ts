@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-settings',
@@ -74,5 +75,5 @@ import { RouterModule, RouterLink } from '@angular/router';
   `]
 })
 export class SettingsPage {
-  alert(msg: string) { window.alert(msg); }
+  alert(msg: string) { toast(msg); }
 }

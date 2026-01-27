@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-staff',
@@ -85,7 +86,7 @@ import { RouterModule, RouterLink } from '@angular/router';
   `]
 })
 export class StaffPage {
-  alert(msg: string) { window.alert(msg); }
+  alert(msg: string) { toast(msg); }
   staff = [
     { name: 'John Doe', district: 'Gasabo', activeSurveys: 24, efficiency: 92, lastActive: '2 mins ago', online: true, avatar: 'https://i.pravatar.cc/150?u=1' },
     { name: 'Alice Smith', district: 'Nyarugenge', activeSurveys: 18, efficiency: 88, lastActive: '1 hour ago', online: true, avatar: 'https://i.pravatar.cc/150?u=2' },
