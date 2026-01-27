@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-landlords',
@@ -76,7 +77,7 @@ import { RouterModule, RouterLink } from '@angular/router';
   `]
 })
 export class LandlordsPage {
-  alert(msg: string) { window.alert(msg); }
+  alert(msg: string) { toast(msg); }
   landlords = [
     { name: 'Mutanguha Eric', contact: '+250 788 123 456', properties: 12, potential: 'RWF 4.2M', paid: 'RWF 3.8M', arrears: 'RWF 400K', compliance: 'High' },
     { name: 'Umuhoza Alice', contact: '+250 788 654 321', properties: 8, potential: 'RWF 2.1M', paid: 'RWF 1.2M', arrears: 'RWF 900K', compliance: 'Medium' },
