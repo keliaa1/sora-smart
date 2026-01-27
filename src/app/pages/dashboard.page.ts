@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LottieComponent, AnimationOptions } from 'ngx-lottie';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-dashboard',
@@ -153,6 +154,6 @@ export class DashboardPage {
   }
 
   alert(msg: string) {
-    window.alert(msg);
+    toast(msg);
   }
 }
