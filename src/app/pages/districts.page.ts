@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-districts',
@@ -91,7 +92,7 @@ import { RouterModule, RouterLink } from '@angular/router';
   `]
 })
 export class DistrictsPage {
-  alert(msg: string) { window.alert(msg); }
+  alert(msg: string) { toast(msg); }
   districts = [
     { name: 'Nyarugenge', rentals: 4280, commercial: 850, potential: 'RWF 1.5B', collected: 'RWF 1.25B', gap: 'RWF 250M', realization: 83, status: 'Completed' },
     { name: 'Gasabo', rentals: 6120, commercial: 1240, potential: 'RWF 2.8B', collected: 'RWF 2.1B', gap: 'RWF 700M', realization: 75, status: 'Warning' },
