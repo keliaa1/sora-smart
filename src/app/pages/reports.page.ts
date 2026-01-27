@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-reports',
@@ -87,7 +88,7 @@ import { RouterModule, RouterLink } from '@angular/router';
   `]
 })
 export class ReportsPage {
-  alert(msg: string) { window.alert(msg); }
+  alert(msg: string) { toast(msg); }
   reports = [
     { title: 'Annual Rental Realization 2025', type: 'Revenue', date: 'Jan 24, 2026', status: 'Ready' },
     { title: 'District Efficiency Audit - Q4', type: 'Staff', date: 'Jan 20, 2026', status: 'Ready' },
