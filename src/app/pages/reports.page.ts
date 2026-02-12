@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule, RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-reports',
   standalone: true,
-  imports: [CommonModule, MatIconModule, RouterModule, RouterLink],
+  imports: [CommonModule, MatIconModule, RouterModule],
   template: `
     <div class="page-container">
       <div class="header-row">
@@ -51,18 +51,24 @@ import { toast } from 'ngx-sonner';
                 <td>
                   <div style="display: flex; align-items: center; gap: 10px;">
                     <mat-icon style="color: #666;">description</mat-icon>
-                    <span style="font-weight: 500;">{{r.title}}</span>
+                    <span style="font-weight: 500;">{{ r.title }}</span>
                   </div>
                 </td>
-                <td><span class="type-tag">{{r.type}}</span></td>
-                <td>{{r.date}}</td>
+                <td>
+                  <span class="type-tag">{{ r.type }}</span>
+                </td>
+                <td>{{ r.date }}</td>
                 <td>
                   <span class="status-badge" [class]="r.status.toLowerCase()">
-                    {{r.status}}
+                    {{ r.status }}
                   </span>
                 </td>
                 <td>
-                  <button class="icon-btn-small" title="Download" (click)="alert('Downloading report: ' + r.title)">
+                  <button
+                    class="icon-btn-small"
+                    title="Download"
+                    (click)="alert('Downloading report: ' + r.title)"
+                  >
                     <mat-icon>download</mat-icon>
                   </button>
                 </td>
@@ -73,25 +79,99 @@ import { toast } from 'ngx-sonner';
       </div>
     </div>
   `,
-  styles: [`
-    .page-container { padding: 5px; }
-    .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-    .table-card { background: white; border-radius: 16px; padding: 25px; border: 1px solid #efefef; }
-    .data-table { width: 100%; border-collapse: collapse; }
-    .data-table th { text-align: left; padding: 15px 12px; border-bottom: 1px solid #f0f0f0; color: #777; font-size: 11px; text-transform: uppercase; font-weight: 600; }
-    .data-table td { padding: 18px 12px; border-bottom: 1px solid #f9f9f9; font-size: 14px; color: #1a1a1a; }
-    .type-tag { font-size: 10px; font-weight: 700; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
-    .status-badge { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-    .status-badge.ready { background: #e6f7ef; color: #10b981; }
-    .status-badge.processing { background: #fef3c7; color: #f59e0b; }
-    .icon-btn-small { background: #f8f9fa; border: 1px solid #eee; border-radius: 6px; cursor: pointer; padding: 6px; display: flex; align-items: center; justify-content: center; }
-  `]
+  styles: [
+    `
+      .page-container {
+        padding: 5px;
+      }
+      .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      .table-card {
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        border: 1px solid #efefef;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .data-table th {
+        text-align: left;
+        padding: 15px 12px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #777;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .data-table td {
+        padding: 18px 12px;
+        border-bottom: 1px solid #f9f9f9;
+        font-size: 14px;
+        color: #1a1a1a;
+      }
+      .type-tag {
+        font-size: 10px;
+        font-weight: 700;
+        background: #f0f0f0;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+      .status-badge {
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .status-badge.ready {
+        background: #e6f7ef;
+        color: #10b981;
+      }
+      .status-badge.processing {
+        background: #fef3c7;
+        color: #f59e0b;
+      }
+      .icon-btn-small {
+        background: #f8f9fa;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    `,
+  ],
 })
 export class ReportsPage {
-  alert(msg: string) { toast(msg); }
+  alert(msg: string) {
+    toast(msg);
+  }
   reports = [
-    { title: 'Annual Rental Realization 2025', type: 'Revenue', date: 'Jan 24, 2026', status: 'Ready' },
-    { title: 'District Efficiency Audit - Q4', type: 'Staff', date: 'Jan 20, 2026', status: 'Ready' },
-    { title: 'Commercial Property Deficit Analysis', type: 'Gap Analysis', date: 'Jan 15, 2026', status: 'Processing' }
+    {
+      title: 'Annual Rental Realization 2025',
+      type: 'Revenue',
+      date: 'Jan 24, 2026',
+      status: 'Ready',
+    },
+    {
+      title: 'District Efficiency Audit - Q4',
+      type: 'Staff',
+      date: 'Jan 20, 2026',
+      status: 'Ready',
+    },
+    {
+      title: 'Commercial Property Deficit Analysis',
+      type: 'Gap Analysis',
+      date: 'Jan 15, 2026',
+      status: 'Processing',
+    },
   ];
 }
